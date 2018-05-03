@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Jogo de Dados</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+	<!--MODAL RULES-->
+	<div class="fundo-modal" id="modal-rules">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal primary">
+						<h2>Regra do Jogo</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<h3>Preencha todos os campos para cadastrar uma partida, com os nomes e valores das apostas dos dois jogadores. Um jogador lançará os dados, um após o outro, em uma disputa, onde quem vencer 3 vezes levará a soma das apostas!</h3>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closeRuleModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL VALIDATION-->
+	<div class="fundo-modal" id="modal-validation">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal danger">
+						<h2>Cadastro Ogrigatório</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<h3>Preencha todos os campos do formulário para iniciar uma partida!</h3>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closeValidationModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL ADD SUCCESS-->
+	<div class="fundo-modal" id="modal-add-sucess">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal success">
+						<h2>Partida Cadastrada com Sucesso!</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<h3>Obrigado por cadastrar uma partida, acompanhe a partida na área de reusltados!</h3>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closeAddSuccessModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL PLAYER 1-->
+	<div class="fundo-modal" id="modal-player1">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal warning">
+						<h2>Jogador 1</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<h3>Por favor clique no botão Lançar Dados, boa sorte!</h3>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closePlayer1Modal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--MODAL PLAYER 2-->
+	<div class="fundo-modal" id="modal-player2">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal aux">
+						<h2>Jogador 2</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<h3>Por favor clique no botão Lançar Dados, boa sorte!</h3>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closePlayer2Modal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL PLAYER 1 WIN-->
+	<div class="fundo-modal" id="modal-player1-win">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal warning">
+						<h2>Jogador 1</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<img src="img/you-win.png" alt="">
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closePlayer1WinModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL PLAYER 2 WIN-->
+	<div class="fundo-modal" id="modal-player2-win">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal aux">
+						<h2>Jogador 2</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<img src="img/you-win.png" alt="">
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closePlayer2WinModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL TIED-->
+	<div class="fundo-modal" id="modal-tied">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal secundary">
+						<h2>Jogo Empatado</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<img src="img/tied.png" alt="">
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closeTiedModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL SOMA-->
+	<div class="fundo-modal" id="modal-soma">
+		<div class="modal-soma">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal primary">
+						<h2>Soma dos Dados</h2>
+					</div>
+				</div>
+				<div class="body-modal">
+					<span id="soma-dados">0</span>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closeSomaModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL VICTORY-->
+	<div class="fundo-modal" id="modal-victory">
+		<div class="modal-rules">
+			<div class="container-modal">
+				<div class="container-header">
+					<div class="header-modal-victory alert">
+						<h2 id="vitorioso">xxxx</h2>
+					</div>
+				</div>
+				<div class="body-modal-victory">
+					<img src="img/victory.png" alt="">
+					<h1>Você Ganhou: R$</h1>
+					<p id="premio">0</p>
+				</div>
+				<div class="footer-modal">
+					<div class="btn-container">
+						<button class="btn-fechar" onclick="closeVictoryModal()">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--APP-->
+	<div class="container">
+		<div class="cabecalho">
+			<h1>Jogo de Dados</h1>
+		</div>	
+		<div class="mesa">
+			<div class="mesa-image">
+				<img src="img/desk.png">
+			</div>
+			<div class="container-mesa">
+				<div class="container-dados">
+					<div class="dados">
+						<img src="img/dado0.png" id="dado1">
+						<img src="img/dado0.png" id="dado2">
+					</div>
+				</div>
+				<div class="btn-container">
+					<button class="btn-lancar" onclick="validaLancamento()">Lançar Dados</button>
+				</div>
+			</div>
+		</div>
+		<div class="info">
+			<div class="formulario">
+				<div class="container-form">
+					<div class="container-card">
+						<h2>Jogadores</h2>
+						<hr/>
+						<div class="container-input">
+							<input class="field-jogador" type="text" name="jogador1" id="jogador1" placeholder="Jogador 1">
+							<input class="field-aposta" type="number" name="aposta1" id="aposta1" placeholder="Aposta R$">
+							<input class="field-jogador" type="text" name="jogador2" id="jogador2" placeholder="Jogador 2">
+							<input class="field-aposta" type="number" name="aposta2" id="aposta2" placeholder="Aposta R$">
+						</div>
+						<div class="btn-container">
+							<button class="btn-cadastrar" onclick="validaPardida()">Cadastrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="resultado">
+				<div class="container-result">
+					<div class="container-card">
+						<h2>Resultado</h2>
+						<div class="detalhes">
+							<hr/>
+							<div class="container-star1">
+								<img src="img/star.png" id="star1-a">
+								<img src="img/star.png" id="star2-a">
+								<img src="img/star.png" id="star3-a">
+							</div>
+							<label>Jogador 1:</label>
+							<p id="reultJogador1">Fulano</p>
+							<label>Apostou: R$</label>
+							<p id="resultAposta1">0,00</p>
+							<label>Jogada:</label>
+							<p id="resultJogada1">0</p>
+							<hr/>
+							<div class="container-star2">
+								<img src="img/star.png" id="star1-b">
+								<img src="img/star.png" id="star2-b">
+								<img src="img/star.png" id="star3-b">
+							</div>
+							<label>Jogador 2:</label>
+							<p id="resultJogador2">Cicrano</p>
+							<label>Apostou: R$</label>
+							<p id="resultAposta2">0,00</p>
+							<label>Jogada:</label>
+							<p id="resultJogada2">0</p>
+							<hr/>
+							<div class="btn-container">
+								<button class="btn-novo" onclick="newGame()">Novo Jogo</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rodape">
+		<p>Development: Melquíades Mário - 2018</p>
+	</div>
+
+	<script src="js/eventos.js"></script>
+</body>
+</html>
